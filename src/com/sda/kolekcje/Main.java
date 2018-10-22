@@ -31,7 +31,31 @@ public class Main {
        po 2 nie sprawdamy n-2 itp.
          */
 // implementacja
+    }
+
+    public static void sort(int[] arrayToSort) {
+        int n = arrayToSort.length;
+        int i = 0;
+
+        // pierwsze usprwanienie
+        boolean swapeed = true;
 
 
+        while (i < n - 1 && swapeed) {
+            swapeed = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arrayToSort[j] > arrayToSort[j + 1]) {
+                    swap(arrayToSort, j, j + 1);
+                    swapeed = true;
+                }
+            }
+            i++;
+        }
+    }
+
+    private static void swap(int[] arr, int index1, int index2) {
+        int tmp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = tmp;
     }
 }
