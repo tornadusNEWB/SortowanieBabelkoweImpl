@@ -33,29 +33,32 @@ public class Main {
 // implementacja
     }
 
+    // metoda sort- statyczna w (przekazujemy tablice intow do posortowania o nazwie arrayToSort)
     public static void sort(int[] arrayToSort) {
-        int n = arrayToSort.length;
-        int i = 0;
+        int n = arrayToSort.length; // dzieki temu mamy dostep o ilosci elementow w tablicy
+        int i = 0;                  // wprowadzamy licznik ile razy przeszlismy po tablicy
 
-        // pierwsze usprwanienie
-        boolean swapeed = true;
+        // pierwsze usprawnienie- nie wykonujemy sortowania na juz posortowanej tablicy
+        boolean swapped = true; // ustawiamy na true zeby petla sie zaczela
 
-
-        while (i < n - 1 && swapeed) {
-            swapeed = false;
-            for (int j = 0; j < n - 1 - i; j++) {
-                if (arrayToSort[j] > arrayToSort[j + 1]) {
-                    swap(arrayToSort, j, j + 1);
-                    swapeed = true;
+// sprawdzenie wykonujemy w petli while. Wykonujemy to az liczba iteracji jest mniejsza od n-1
+        while (i < n - 1 && swapped) { // jesli nie wykonales ilosci iteracji ktora gwarantuje posortowanie albo wykonales zamiane to wykonujemy nasz kod
+            swapped = false; // przed kazda iteracja ustawiamy na false
+            for (int j = 0; j < n - 1 - i; j++) { // przechodzimy po wszystkich elementach w tablicy, nie mozemy wyjsc poza indeks
+                // kolejne usprawnienie- odcinanie uporzadkowanej juz czesci tablicy, stad n -1 - i sie wzielo. Eliminujemy dochodzenie do konca tablicy przez odjecie zmiennej i
+                if (arrayToSort[j] > arrayToSort[j + 1]) { // odwolujemy sie do pol tablicy do posortowania
+                    swap(arrayToSort, j, j + 1);    // wywolujemy funkcje swap
+                    swapped = true; // gdy tablica zostala posortowana
                 }
             }
             i++;
         }
     }
 
-    private static void swap(int[] arr, int index1, int index2) {
-        int tmp = arr[index1];
-        arr[index1] = arr[index2];
+    private static void swap(int[] arr, int index1, int index2) { //wykonujemy operacje na tablicy
+        // przekazujemy tablice, index 1 i index2
+        int tmp = arr[index1]; // zapamietujemy index z elementu 1
+        arr[index1] = arr[index2]; //
         arr[index2] = tmp;
     }
 }

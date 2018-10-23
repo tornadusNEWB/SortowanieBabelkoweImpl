@@ -6,7 +6,7 @@ import java.util.Random;
 public class TestSortowania {
 
     public static void main(String[] args) {
-        Random random = new Random(); // obiekt klasy random, ktory wpisuje liczby do tablicy o dlugosci 50
+        Random random = new Random(); // obiekt klasy random, ktory losowo przydziela liczby do tablicy o dlugosci 50
         int[] tablicaTesotwa = new int[50];
 
         for (int i = 0; i < tablicaTesotwa.length; i++) {
@@ -22,7 +22,7 @@ public class TestSortowania {
         TestSortowania.printArray(tablicaTesotwa); // jeszcze raz drukuje tablice, tym razem uporzadkowana
     }
 
-    // petla do drukowania tablicy
+    // metoda do drukowania tablicy - petla for
     private static void printArray(int[] arr) {
         for (int j = 0; j < arr.length; j++) {
             System.out.println(arr[j] + " ");
